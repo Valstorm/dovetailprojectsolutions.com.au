@@ -1,0 +1,105 @@
+/* Grid and common widths configuration */
+$gutter-width-mobile: 20px;
+$gutter-width-tablet: 25px;
+$gutter-width-desktop: 40px;
+
+$section-spacing-mobile: 48px;
+$section-spacing-tablet: 52px;
+$section-spacing-desktop: 60px;
+
+$site-content-width-inner: 1286px;
+$site-content-width: $site-content-width-inner + ($gutter-width-desktop * 2);
+$site-content-width-extended: $site-content-width-inner + ($gutter-width-desktop * 4);
+
+$gutter-width-mobile-extended-indented: $gutter-width-desktop + (($site-content-width-extended - $site-content-width) / 2);
+
+/* Mobile first breakpoints */
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-wide: 1278px;
+
+html,
+body {
+	height: 100%;
+}
+
+/* sticky footer */
+body {
+	display: table;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	// firefox fix otherwise body width is insane
+	table-layout: fixed;
+}
+
+.wrap {
+	display: table-row;
+	height: 100%;
+	width: 100%;
+}
+
+.site-footer {
+	display: table-row;
+	height: 1px;
+}
+/* / sticky-footer */
+
+.page-container,
+.tab-page-container .tab-nav-page {
+
+	> .section:first-child {
+		padding-top: $section-spacing-mobile;
+
+		@include breakpoint($breakpoint-tablet) {
+			padding-top: $section-spacing-tablet;
+		}
+		@include breakpoint($breakpoint-desktop) {
+			padding-top: $section-spacing-desktop;
+		}
+	}
+
+	> .section:not(.no-section-spacing) {
+		padding-bottom: $section-spacing-mobile;
+
+		@include breakpoint($breakpoint-tablet) {
+			padding-bottom: $section-spacing-tablet;
+		}
+		@include breakpoint($breakpoint-desktop) {
+			padding-bottom: $section-spacing-desktop;
+		}
+	}
+}
+
+.section,
+.header {
+	.inner {
+		@include container($site-content-width);
+		padding: 0 $gutter-width-mobile;
+
+		@include breakpoint($breakpoint-tablet) {
+			padding: 0 $gutter-width-tablet;
+		}
+		@include breakpoint($breakpoint-desktop) {
+			padding: 0 $gutter-width-desktop;
+		}
+	}
+}
+
+@mixin section-spacing-after-no-spacing () {
+	.no-section-spacing:not(.matrix) + & {
+		padding-top: $section-spacing-mobile;
+
+		@include breakpoint($breakpoint-tablet) {
+			padding-top: $section-spacing-tablet;
+		}
+		@include breakpoint($breakpoint-desktop) {
+			padding-top: $section-spacing-desktop;
+		}
+	}
+}
+
+
+body > .video-iframe {
+	display: none;
+}

@@ -1,0 +1,32 @@
+.link-list-matrix {
+	font-size: 0;
+	text-align: center;
+
+	.link-list {
+		font-size: $font-size-default-mobile;
+		padding: 0;
+
+		@include breakpoint($breakpoint-tablet) {
+			padding: 0 20px;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 60px;
+		}
+
+		@include breakpoint($breakpoint-tablet) {
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+
+			&:not(:last-child) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	.link-list-inner {
+		max-width: 440px;
+		margin: auto;
+	}
+}

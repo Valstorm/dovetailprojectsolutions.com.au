@@ -1,0 +1,38 @@
+#dev-nav-trigger {
+	position: fixed;
+	clip: rect(0, 0, 0, 0);
+}
+
+label[for="dev-nav-trigger"] {
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: -20px;
+	top: 0;
+	background: rgba(0, 0, 0, 0.3);
+	cursor: pointer;
+}
+
+.dev-nav {
+	position: fixed;
+	left: 0;
+	top: 0;
+	z-index: 9999;
+	background: rgba(0, 0, 0, 0.6);
+	padding: 10px;
+	transform: translateX(-100%);
+
+	a {
+		font-family: monospace;
+		font-size: 12px;
+		line-height: 16px;
+		color: #fff;
+		float: left;
+		clear: both;
+		text-decoration: none;
+	}
+}
+
+#dev-nav-trigger:checked ~ .dev-nav {
+	transform: translateX(0%);
+}

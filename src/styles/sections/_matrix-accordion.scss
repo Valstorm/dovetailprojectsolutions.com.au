@@ -1,0 +1,94 @@
+.matrix-accordion {
+
+	.accordion-toggle {
+
+		@include breakpoint($breakpoint-tablet) {
+
+			.figure-card-img {
+				position: relative;
+				&:after {
+					transition: opacity .3s ease-out;
+					content: '';
+					opacity: 0;
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					box-shadow: 0 0 0 5px $bg-color-1;
+				}
+			}
+
+			.js & {
+				cursor: pointer;
+			}
+
+			.js &:hover {
+				.figure-card-img:after {
+					opacity: 1;
+					transition: opacity .3s ease-out;
+				}
+			}
+		}
+	}
+
+	.accordion-content {
+		@include transition(height .3s ease);
+		position: relative;
+		display: block;
+		width: 100%;
+		height: 0;
+		overflow: hidden;
+
+		// top border
+		&:before,
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 50%;
+			width: 100%;
+			transform: translateX(-50%);
+			height: 2px;
+			background-color: #eee;
+
+			@include breakpoint($breakpoint-tablet) {
+				width: calc(100% - 30px);
+			}
+		}
+
+		&:after {
+			top: auto;
+			bottom: 30px;
+		}
+
+		.full-profile {
+			padding: 30px 15px;
+
+			@include breakpoint($breakpoint-tablet) {
+				padding: 30px 15px;
+			}
+			@include breakpoint($breakpoint-desktop) {
+				padding: 30px 15px;
+			}
+
+			.figure-card-img img {
+				display: block;
+				margin: 0 auto;
+				padding-bottom: 30px;
+			}
+
+			.text-block {
+				position: relative;
+				padding-bottom: 30px;
+				text-align: left;
+
+				@include breakpoint($breakpoint-tablet) {
+					text-align: center;
+				}
+			}
+		}
+
+	}
+
+}

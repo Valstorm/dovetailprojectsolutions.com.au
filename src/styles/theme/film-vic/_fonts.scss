@@ -1,0 +1,69 @@
+// Import fonts and define font-family vars here
+
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,600);
+
+
+@font-face {
+  font-family: "Neutra2Display-Bold";
+  src: 	url("../fonts/Neutra2Display-Bold.eot?") format("eot"),
+  		url("../fonts/Neutra2Display-Bold.woff") format("woff");
+}
+@font-face {
+  font-family: "Neutra2Display-Medium";
+  src: 	url("../fonts/Neutra2Display-Medium.eot?") format("eot"),
+  		url("../fonts/Neutra2Display-Medium.woff") format("woff");
+}
+
+
+$font-heading-1: "Neutra2Display-Medium", Arial, sans-serif;
+$font-header-letter-spacing: -0.045em;
+$font-header-line-height: 1.52em;
+$font-body: "Work Sans", Arial, sans-serif;
+$font-body-letter-spacing: -0.03em;
+$font-body-line-height: 1.43em;
+
+@mixin font-1-light () {
+	font-family: "Work Sans", Arial, sans-serif;
+	font-weight: 300;
+	font-style: normal;
+	letter-spacing: $font-body-letter-spacing;
+	line-height: $font-body-line-height;
+}
+
+@mixin font-1-regular () {
+	font-family: "Work Sans", Arial, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: $font-body-letter-spacing;
+	line-height: $font-body-line-height;
+}
+
+@mixin font-1-medium () {
+	font-family: "Work Sans", Arial, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+	letter-spacing: 0.01em;
+	line-height: $font-body-line-height;
+}
+
+@mixin font-1-bold {
+	font-family: "Work Sans", Arial, sans-serif;
+	font-weight: 600;
+	font-style: normal;
+	letter-spacing: 0.01em;
+	line-height: $font-body-line-height;
+}
+
+@mixin font-2-medium () {
+	font-family: "Neutra2Display-Medium", Arial, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: 0.01em;
+}
+
+@mixin font-2-bold {
+	font-family: "Neutra2Display-Bold", Arial, sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: 0.01em;
+}

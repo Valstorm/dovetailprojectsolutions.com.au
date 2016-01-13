@@ -1,0 +1,114 @@
+.section-with-sidebar {
+
+	.inner {
+		width: 100%;
+		
+		@include breakpoint($breakpoint-tablet) {
+			padding-right: 0;
+			display: table;
+		}
+	}
+	
+	.section-sidebar,
+	.section-content {
+		display: block;
+
+		@include breakpoint($breakpoint-tablet) {
+			display: table-cell;
+			vertical-align: top;
+		}
+	}
+
+	.section-sidebar {
+		@include breakpoint($breakpoint-tablet) {
+			height: 100%;
+			min-width: 300px;
+		}
+
+		@include breakpoint($breakpoint-desktop) {
+			height: 100%;
+			min-width: 300px;
+		}
+	}
+
+	.section-content {
+		width: 100%;
+		height: 100%;
+
+		&.content-left {
+			.section-content-inner {
+				// padding-left: $gutter-width-mobile;
+
+				@include breakpoint($breakpoint-tablet) {
+					padding-right: $gutter-width-tablet;
+					padding-left: $gutter-width-tablet;
+				}
+
+				@include breakpoint($breakpoint-desktop) {
+					padding-right: $gutter-width-desktop;
+					padding-left: $gutter-width-desktop;
+				}
+			}
+		}
+		
+		&.content-right {
+			.section-content-inner {
+				// padding-right: $gutter-width-mobile;
+
+				@include breakpoint($breakpoint-tablet) {
+					padding-left: $gutter-width-tablet;
+					padding-right: $gutter-width-tablet;
+				}
+
+				@include breakpoint($breakpoint-desktop) {
+					padding-left: $gutter-width-desktop;
+					padding-right: $gutter-width-desktop;
+				}
+			}
+		}
+	}
+
+	.section-content-inner {
+		height: 100%;
+
+		& .button-panel {
+			@include breakpoint(max-width $breakpoint-tablet) {
+				margin-bottom: 15px;
+			}
+		}
+	}
+
+	.section-with-sidebar-header {
+		display: block;
+		width: 100%;
+
+		@include breakpoint($breakpoint-tablet) {
+			display: table-row;
+		}
+
+		.back-link,
+		.section-title {
+			display: block;
+
+			@include breakpoint($breakpoint-tablet) {
+				display: table-cell;
+				vertical-align: top;
+			}
+		}
+
+		.section-title {
+			padding-right: $gutter-width-mobile;
+
+			@include breakpoint($breakpoint-tablet) {
+				padding-bottom: 30px;
+				padding-left: $gutter-width-tablet;
+				padding-right: $gutter-width-tablet;
+			}
+
+			@include breakpoint($breakpoint-desktop) {
+				padding-left: $gutter-width-desktop;
+				padding-right: $gutter-width-desktop;
+			}
+		}
+	}
+}

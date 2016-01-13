@@ -1,0 +1,39 @@
+$figure-card-col-spacing: 30px;
+
+.figure-card-matrix {
+
+	.figure-card-list {
+		font-size: 0;
+		max-width: $site-content-width;
+		margin: 0 auto;
+		text-align: left;
+		padding: 0 ($gutter-width-mobile - ($figure-card-col-spacing / 2));
+
+		@include breakpoint($breakpoint-tablet) {
+			padding: 0 ($gutter-width-tablet - ($figure-card-col-spacing / 2));
+		}
+		@include breakpoint($breakpoint-desktop) {
+			padding: 0 ($gutter-width-desktop - ($figure-card-col-spacing / 2));
+		}
+
+		.figure-card {
+			display: inline-block;
+			vertical-align: top;
+			width: 100%;
+			font-size: 16px;
+			padding: 0 15px;
+
+			@include breakpoint(560px) {
+				width: 50%;
+			}
+
+			@include breakpoint($breakpoint-tablet) {
+				width: 33.33%;
+			}
+
+			@include breakpoint($breakpoint-desktop) {
+				width: 25%;
+			}
+		}
+	}
+}

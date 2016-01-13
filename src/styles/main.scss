@@ -1,0 +1,265 @@
+/* === Reset */
+@import "framework/normalize";
+
+/* === Third party frameworks & libraries */
+@import "../bower_components/breakpoint-sass/stylesheets/breakpoint";
+@import "../bower_components/susy/sass/susy";
+
+/* === Mixins & Helpers */
+@import "mixins/transitions";
+@import "mixins/helpers";
+
+@mixin font-1 {
+	font-family: Calibri, Arial, sans-serif; 
+}
+
+$max-width: 1024px;
+
+$font-size-default: 18px;
+
+$color-orange: #f93d01;
+
+body {
+	@include font-1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+
+}
+
+p {
+	font-size: $font-size-default;
+}
+
+ul {
+	font-size: $font-size-default;
+}
+
+.heading {
+	font-style: italic;
+	font-size: 36px;
+	text-align: center;
+	margin: 0 0 30px;
+	font-weight: bold;
+	line-height: 1.1em;
+}
+
+* + .heading {
+	margin-top: 30px;
+}
+
+.section {
+	padding-top: 60px;
+	padding-bottom: 60px;
+
+	& > .inner {
+		max-width: $max-width;
+		margin: auto;
+		padding: 0 30px;
+	}
+}
+
+.columns {
+	&.col-2 {
+		font-size: 0;
+
+		.col {
+			display: inline-block;
+			width: 50%;
+			vertical-align: top;
+			font-size: $font-size-default;
+			padding: 0 30px;
+		}
+	}
+}
+
+.site-header {
+	text-align: center;
+	border-bottom: 4px solid $color-orange;
+	font-size: 0;
+	padding: 10px 15px;
+
+	.site-title {
+		display: inline-block;
+		vertical-align: top;
+		font-size: 48px;
+		text-transform: uppercase;
+		color: $color-orange;
+		margin: 0 15px;
+		line-height: 1.2em;
+	}
+
+	.contact-buttons {
+		display: inline-block;
+		vertical-align: top;
+		height: 100%;
+		font-size: 0;
+		margin: 0 15px;
+		padding-top: 14px;
+		
+		a {
+			display: inline-block;
+			width: 40px;
+			height: 40px;
+			color: $color-orange;
+			margin: 0 10px;
+
+			svg {
+				width: 100%;
+				height: 100%;
+				fill: $color-orange;
+				opacity: .8;
+			}
+		}
+	}
+}
+
+.logo-intro {
+	position: relative;
+	background-color: #010a0c;
+	background-image: url(../img/hero-1.jpg);
+	background-position: center center;
+	background-size: cover;
+	color: #fff;
+	text-align: center;
+	min-height: 800px;
+
+	.content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		max-width: $max-width;
+		transform: translate(-50%, -50%);
+		padding: 30px 60px;
+	}
+
+	.site-logo {
+		width: 120px;
+		height: 130px;
+		margin: auto;
+
+		svg {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	.heading {
+		font-size: 60px;
+		margin-top: 60px;
+		margin-bottom: 60px;
+	}
+
+	.scroll-notice { 
+		max-width: 600px;
+		margin: auto;
+		font-size: 28px;
+
+		&:after {
+			content: "";
+		}
+	}
+}		
+
+
+.big-text {
+
+	.heading {
+		font-size: 60px;
+		margin: 0;
+	}
+
+	p {
+		font-style: italic;
+		font-size: 48px;
+		text-align: center;
+		font-weight: bold;
+		line-height: 1.1em;
+	}
+
+	.heading + p,
+	p + p {
+		margin-top: 60px;
+	}
+}
+
+.outlined {
+	
+}
+
+.services {
+
+	.heading {
+
+	}
+}
+
+.values {
+
+
+	.heading {
+
+	}
+}
+
+.testimonials {
+
+	.heading {
+
+	}
+
+	blockquote {
+		margin: 0;
+		text-align: center;
+
+		p {
+			&:first-of-type {
+				&:before {
+					content: "\201C";
+				}
+			}
+			&:last-of-type {
+				&:after {
+					content: "\201D";
+				}
+			}
+		}
+
+		cite {	
+			&:before {
+				content: "\2014";
+			}
+		}
+	}
+}
+
+.contact-form {
+
+	.heading {
+
+	}
+
+	form {
+
+		.field {
+
+			label {
+
+			}
+
+			input,
+			textarea {
+				font-size: $font-size-default;
+			}
+
+			input {
+
+			}
+
+			textarea {
+
+			}
+		}
+	}
+}

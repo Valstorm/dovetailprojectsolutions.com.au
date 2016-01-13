@@ -1,0 +1,225 @@
+.image-card-matrix {
+	@include section-spacing-after-no-spacing;
+	font-size: 0;
+	margin-bottom: $section-spacing-mobile - 30px;
+
+	@include breakpoint($breakpoint-tablet) {
+		margin-bottom: $section-spacing-tablet - 30px;
+	}
+	@include breakpoint($breakpoint-desktop) {
+		margin-bottom: $section-spacing-desktop - 30px;
+	}
+
+	&.section {
+
+		.inner {
+			@include container($site-content-width);
+			padding: 0 (($gutter-width-mobile - 10px) / 2);
+
+			@include breakpoint($breakpoint-tablet) {
+				padding: 0 (($gutter-width-tablet - 5px) / 2);
+			}	
+			@include breakpoint($breakpoint-desktop) {
+				padding: 0 (($gutter-width-desktop + 9px) / 2);
+			}
+		}
+
+		&.with-slide-out-matrix {
+			.inner {
+				@include breakpoint(max-width $breakpoint-tablet) {
+					padding: 0;
+				}
+			}
+		}
+
+		.page-container & {
+			padding-bottom: 0;
+		}
+	}
+
+	.image-card {
+		display: inline-block;
+		vertical-align: top;
+		font-size: $font-size-default-mobile;
+		padding: 0 15px;
+		margin-bottom: 30px;
+
+		@include breakpoint($breakpoint-tablet) {
+			margin-bottom: 30px;
+		}
+		@include breakpoint($breakpoint-desktop) {
+			margin-bottom: 30px;
+		}	
+
+		&.with-slide-out {
+			@include breakpoint(max-width $breakpoint-tablet) {
+				padding: 0;
+			}
+		}
+	}
+
+	&[data-row-count="4"] {
+		.image-card {
+			width: 100%;
+
+			@include breakpoint($breakpoint-tablet) {
+				width: 50%;
+			}
+
+			@include breakpoint($breakpoint-desktop) {
+				width: 25%;
+			}
+
+			.image-block {
+				height: 205px;
+			}
+
+			&.with-slide-out {
+				width: 100%;
+
+				@include breakpoint($breakpoint-tablet) {
+					width: 50%;
+				}
+				@include breakpoint($breakpoint-desktop-wide) {
+					width: 25%;
+				}
+
+				.image-block {
+					height: 100px;
+
+					@include breakpoint($breakpoint-tablet) {
+						height: 260px;
+					}
+				}
+			}
+		}
+	}
+	
+	&[data-row-count="3"] {
+		.image-card {
+			width: 100%;
+
+			@include breakpoint($breakpoint-desktop) {
+				width: 33.33%;
+			}
+
+			.image-block {
+				@include breakpoint($breakpoint-tablet) {
+					height: 205px;
+				}
+
+				.text {
+					width: calc(#{$image-card-text-block-w} + 50px);
+				}
+			}
+
+			&.with-slide-out {
+				width: 100%;
+
+				@include breakpoint($breakpoint-tablet) {
+					width: 50%;
+				}
+				@include breakpoint($breakpoint-desktop-wide) {
+					width: 33.33%;
+				}
+
+				.image-block {
+					height: 100px;
+
+					@include breakpoint($breakpoint-tablet) {
+						height: 260px;
+						
+					}
+					
+					.text {
+						width: 72%;
+
+						@include breakpoint(500px) {
+							width: 65%;
+						}
+						@include breakpoint(600px) {
+							width: 60%;
+						}
+						@include breakpoint($breakpoint-tablet) {
+							width: 90%;
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	&[data-row-count="2"] {
+		.image-card {
+			width: 100%;
+
+			@include breakpoint($breakpoint-desktop) {
+				width: 50%;
+			}
+
+			&:not(.with-slide-out) {
+
+				.image-block {
+					@include breakpoint($breakpoint-tablet) {
+						height: 300px;
+					}
+
+					.bg {
+						.image {
+							@include breakpoint($breakpoint-tablet) {
+								width: calc(33% + #{($image-card-bg-shape-angle-w - $image-card-bg-shape-hover-offset)} + 55px);
+							}
+						}
+
+						.brand-angle {
+							@include breakpoint($breakpoint-tablet) {
+								left: 33%;
+							}
+						}
+					}
+
+					.text {
+						width: calc(#{$image-card-text-block-w} + 50px);
+						// padding: 10px 15px;
+
+						@include breakpoint($breakpoint-tablet) {
+							padding: 25px 20px;
+						}
+
+						.title {
+							// font-size: 20px;
+
+							@include breakpoint($breakpoint-tablet) {
+								font-size: 26px;
+							}
+						}
+
+						.cta-text {
+							// font-size: 14px;
+
+							@include breakpoint($breakpoint-tablet) {
+								font-size: 18px;
+							}
+						}
+					}
+				}
+			}
+
+			&.with-slide-out {
+				width: 100%;
+
+				@include breakpoint($breakpoint-tablet) {
+					width: 50%;
+				}
+
+				.image-block {
+					height: 100px;
+
+					@include breakpoint($breakpoint-tablet) {
+						height: 260px;
+					}
+				}
+			}
+		}
+	}
+}

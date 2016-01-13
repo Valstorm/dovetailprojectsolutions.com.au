@@ -1,0 +1,109 @@
+.page-container {
+	> .column-matrix.section:not(.no-section-spacing) {
+		padding-bottom: 0;
+	}
+}
+
+.column-matrix {
+	@include section-spacing-after-no-spacing;
+
+	@include breakpoint($breakpoint-tablet) {
+		@include clearfix();
+		overflow: hidden;
+	}
+
+	.col {
+		margin-bottom: $section-spacing-mobile;
+		font-size: 17px;
+
+		@include breakpoint($breakpoint-tablet) {
+			float: left;
+			padding: 0 15px;
+			margin-bottom: $section-spacing-tablet;
+
+			&:first-of-type {
+				padding-left: 0;
+			}
+			&:last-of-type {
+				padding-right: 0;
+			}
+		}
+		@include breakpoint($breakpoint-desktop) {
+			margin-bottom: $section-spacing-desktop;
+			padding: 0 30px;
+
+		}
+
+		.title {
+			@include font-2-bold;
+			font-size: 22px;
+			text-transform: uppercase;
+			margin-bottom: 18px;
+
+			@include breakpoint($breakpoint-tablet) {
+				font-size: 26px;
+				margin-bottom: 21px;
+			}
+			@include breakpoint($breakpoint-desktop) {
+				font-size: 30px;
+				margin-bottom: 25px;
+			}
+		}
+
+		p {
+			font-size: 16px;
+			line-height: 1.6em;
+
+			&:not(:last-child) {
+				margin-bottom: 0.8em;
+			}
+		}
+	}
+
+	&[data-col-count="2"] .col {
+		@include breakpoint($breakpoint-tablet) {
+			@include removePaddingFirstLast(2);
+			width: 50%;
+		}
+
+		.title {
+			@include breakpoint($breakpoint-tablet) {
+				font-size: 30px;
+				margin-bottom: 25px;
+			}
+		}
+
+		p {
+			@include breakpoint($breakpoint-tablet) {
+				font-size: 18px;
+			}
+		}
+	}
+
+	&[data-col-count="3"] .col {
+		@include breakpoint($breakpoint-tablet) {
+			@include removePaddingFirstLast(3);
+			width: 33.33%;
+
+		}
+
+		p {
+			@include breakpoint($breakpoint-tablet) {
+				font-size: 17px;
+			}
+		}
+	}
+
+	&[data-col-count="4"] .col {
+		@include breakpoint($breakpoint-tablet) {
+			@include removePaddingFirstLast(4);
+			width: 25%;
+		}
+
+		p {
+			@include breakpoint($breakpoint-tablet) {
+				font-size: 17px;
+			}
+		}
+	}
+}

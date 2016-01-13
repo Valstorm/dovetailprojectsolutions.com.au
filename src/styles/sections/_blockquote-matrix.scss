@@ -1,0 +1,47 @@
+.blockquote-matrix {
+	position: relative;
+	font-size: 0;
+	text-align: center;
+	
+	// Dividing line
+	@include breakpoint($breakpoint-desktop) {
+		&:not(.single-quote) {
+			text-align: left;
+
+			&:after {
+				content: "";
+				position: absolute;
+				left: 50%;
+				transform: translateX(-1px);
+				top: 0;
+				display: block;
+				width: 2px;
+				height: calc(100% - #{$section-spacing-mobile});
+				background-color: $divider-color-1;
+
+				@include breakpoint($breakpoint-tablet) {
+					height: calc(100% - #{$section-spacing-tablet});
+				}
+				@include breakpoint($breakpoint-desktop) {
+					height: calc(100% - #{$section-spacing-desktop});
+				}
+			}
+		}
+	}
+	
+	.blockquote {
+		display: block;
+
+		@include breakpoint(max-width $breakpoint-desktop) {
+			&:not(:last-child) {
+				margin-bottom: $section-spacing-desktop;
+			}
+		}
+
+		@include breakpoint($breakpoint-desktop) {
+			display: inline-block;
+			vertical-align: top;
+			width: 50%;
+		}
+	}
+}

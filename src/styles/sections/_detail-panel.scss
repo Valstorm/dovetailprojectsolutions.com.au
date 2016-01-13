@@ -1,0 +1,102 @@
+$detail-panel-bp-1: 800px;
+$detail-panel-bp-2: 1100px;
+
+.detail-panel {
+
+	.inner {
+		font-size: 0;
+	}
+
+	.detail-text,
+	.detail-visual {
+		display: block;
+		width: 100%;
+		@include breakpoint(min-width $detail-panel-bp-1) {
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+
+	.detail-text {
+		margin-bottom: 30px;
+		padding-right: $gutter-width-mobile;
+
+		.no-js & {
+			padding-right: 0;
+			display: block;
+			margin: auto;
+		}
+
+		@include breakpoint(min-width $detail-panel-bp-1) {
+			width: 50%;
+			padding-right:$gutter-width-tablet;
+		}
+
+		@include breakpoint(min-width $detail-panel-bp-2) {
+			width: 41%;
+			padding-right: $gutter-width-desktop;
+		}
+
+		p {
+			margin: 4px 0;
+			font-weight: 300;
+
+			&:first-child {
+				margin-top: 15px;
+			}
+			&:last-child {
+				margin-bottom: 15px;
+			}
+		}
+
+		a {
+			text-decoration: none;
+			color: $bg-color-2;
+			font-weight: 400;
+		}
+
+		.title {
+			@include font-1-medium;
+			font-size: 30px;
+			margin: 0;
+		}
+
+		.subtitle {
+			@include font-1-regular;
+			font-size: 24px;
+			margin: 0;
+			color: $font-color-3;
+		}
+	}
+
+	.detail-visual {
+		margin-top: 10px;
+		border: 2px solid #ccc;
+		max-height: 90vh;
+		overflow: hidden;
+
+		.no-js & {
+			display: none;
+		}
+
+		@include breakpoint(min-width $detail-panel-bp-1) {
+			width: 50%;
+		}
+
+		@include breakpoint(min-width $detail-panel-bp-2) {
+			width: 59%;
+		}
+
+		.embed-container {
+			padding-bottom: 110%;
+
+			@include breakpoint(min-width $detail-panel-bp-1) {
+				padding-bottom: 92%;
+			}
+
+			@include breakpoint(min-width $detail-panel-bp-2) {
+				padding-bottom: 56.25%;
+			}
+		}
+	}
+}

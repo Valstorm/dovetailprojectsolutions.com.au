@@ -1,0 +1,45 @@
+// Define variables for common colors relating to branding, fonts, backgrounds and border styles here
+
+$bg-color-site: #fff;
+$bg-color-1: #23a499; // Teal Blue
+$bg-color-2: #252e69; // Deep Blue
+$bg-color-3: #231a1a; // Very Dark Red-Brown
+$bg-color-4: #eee; // Light Grey
+
+$font-color-default: #333;
+$font-color-light-1: #fff;
+$font-color-1: #333;
+$font-color-2: #252e69; // Deep Blue
+$font-color-3: #bbb; // Mid Dark Grey
+$font-color-4: #999; // Dark Grey
+
+$link-color-1: #23a499; // Teal Blue
+
+$outline: 1px dotted $font-color-1;
+$outline-offset: -1px;
+$divider-color-1: #dcdcdc; // Mid Light Grey
+$border-style-1: 1px solid $font-color-1;
+
+*:focus {
+	outline: $outline;
+	outline-offset: $outline-offset;
+}
+
+svg:focus,
+path:focus {
+	outline: 0;
+}
+
+html {
+	background-color: #fff;
+}
+
+
+a {
+	text-decoration: none;
+	color: $link-color-1;
+	transition: color .2s ease-out;
+	&:hover {
+		color: mix($link-color-1, white, 60);
+	}
+}

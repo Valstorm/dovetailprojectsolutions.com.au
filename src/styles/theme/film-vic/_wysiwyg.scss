@@ -1,0 +1,123 @@
+.wysiwyg {
+	ul,
+	ol {
+		margin-left: 15px;
+		padding-left: 18px;
+		font-size: 16px;
+		margin-bottom: 0.8em;
+
+		li {
+			margin-bottom: 0.6em;
+		}
+	}
+
+
+	img {
+		margin: 15px 0;
+		@include breakpoint($breakpoint-tablet) {
+			margin: 15px auto;
+		}
+	}
+
+	figcaption {
+		text-align: center;
+		padding: 10px 5px;
+	}
+
+	td,
+	th {
+		padding: 4px 8px;
+	}
+
+	input[type="checkbox"],
+	input[type="radio"] {
+		height: auto;
+	}
+
+	li > label {
+		padding-top: 0;
+	}
+
+	$blockquote-indentation: 50px;
+	$blockquote-symbols-indentation-mobile: 32px;
+	$blockquote-symbols-indentation-tablet: 40px;
+	$blockquote-symbols-indentation-desktop: 40px;
+
+	blockquote {
+		position: relative;
+		margin: 0 auto;
+		padding: 0;
+
+		@include breakpoint($breakpoint-tablet) {
+			padding: 0 $blockquote-indentation;
+		}
+
+		> p {
+			padding-left: $blockquote-symbols-indentation-mobile;
+			margin-bottom: 18px;
+
+			@include breakpoint($breakpoint-tablet) {
+				padding-left: $blockquote-symbols-indentation-tablet;
+				margin-bottom: 20px;
+			}
+			@include breakpoint($breakpoint-desktop) {
+				padding-left: $blockquote-symbols-indentation-desktop;
+				margin-bottom: 36px;
+			}
+
+			font-size: 16px;
+			line-height: 1.53em;
+
+			@include breakpoint($breakpoint-tablet) {
+				font-size: 21px;
+			}
+
+			&:first-of-type:before {
+				content: "\201C";
+				left: 0;
+
+				@include breakpoint($breakpoint-tablet) {
+					left: $blockquote-indentation;
+				}
+			}
+
+			&:last-of-type {
+				margin-bottom: 10px;
+			}
+
+			&:before,
+			&:after {
+				position: absolute;
+				@include font-1-regular;
+				font-size: 60px;
+				line-height: 50px;
+				color: $bg-color-1;
+
+				@include breakpoint($breakpoint-tablet) {
+					font-size: 72px;
+					line-height: 60px;
+				}
+			}
+		}
+	}
+
+	cite p,
+	cite a {
+		display: block;
+		padding-left: $blockquote-symbols-indentation-mobile;
+		font-style: italic;
+		font-size: 14px;
+
+		@include breakpoint($breakpoint-tablet) {
+			font-size: 18px;
+		}
+		@include font-1-bold;
+
+		@include breakpoint($breakpoint-tablet) {
+			padding-left: $blockquote-symbols-indentation-desktop;
+		}
+
+
+	}
+
+}

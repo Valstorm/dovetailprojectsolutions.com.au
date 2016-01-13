@@ -1,0 +1,329 @@
+$checkbox-input-width: 26px;
+$select-input-width: 26px;
+
+input,
+.input {
+	height: 44px;
+	padding: 14px 9px;
+	@include font-1-medium;
+}
+
+input[type="file"] {
+	border: none;
+}
+
+input[type="number"] {
+	padding: 0 9px;
+}
+
+textarea,
+.textarea {
+	min-height: 88px;
+	padding: 7px 9px;
+	resize: vertical;
+	width: 100%;
+	max-width: 420px;
+}
+
+input,
+.input,
+textarea,
+.textarea {
+	border: 2px solid #ccc;
+	border-radius: 0;
+	line-height: 1.5em;
+	font-size: 16px;
+	background-color: #fff;
+}
+
+select,
+select.input {
+	border-radius: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	-webkit-appearance: none;
+	-webkit-border-radius: 0px;
+	-moz-appearance: none;
+	text-indent: 0.01px;
+	text-overflow: "";
+	padding-right: 30px;
+	background-color: transparent;
+	cursor: pointer;
+}
+
+.select-input {
+	display: inline-block;
+	position: relative;
+}
+
+select + .icon-triangle {
+	position: absolute;
+	z-index: 1;
+	right: 13px;
+	top: 50%;
+	width: 12px;
+	height: 8px;
+	transform: translateY(-50%);
+	fill: #333;
+	box-shadow: inset 0 0 0 10px white, 0 0 1px 10px white;
+}
+
+label {
+	display: inline-block;
+	vertical-align: top;
+	padding-top: 9px;
+	min-height: 44px;
+	font-size: 18px;
+}
+
+.inner-label {
+	height: auto;
+
+	@include breakpoint(max-width 480px) {
+		display: block;
+	}
+
+	> input {
+		height: auto;
+	}
+}
+
+input[type="submit"] {
+	@include transition(all 0.2s ease-out);
+	@include font-1-medium;
+	min-height: 60px;
+	min-width: 180px;
+	padding: 17px 35px;
+	font-size: 22px;
+	text-transform: uppercase;
+	background-color: $bg-color-2;
+	color: #fff;
+	text-align: center;
+	border: 0;
+
+
+	@include breakpoint($breakpoint-tablet) {
+		min-height: 60px;
+		padding: 16px 25px;
+		font-size: 17px;
+	}
+
+	&:hover {
+		background-color: darken($bg-color-2, 20);
+	}
+
+	&:disabled {
+		background-color: $bg-color-4;
+		color: $font-color-1;
+		cursor: not-allowed;
+	}
+}
+
+.form-field {
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+
+	label {
+		min-width: 130px;
+	}
+
+	.checkbox-input,
+	.radio-input {
+		&:not(:last-child) {
+			margin-bottom: 8px;
+		}
+	}
+}
+
+fieldset {
+	padding: 15px;
+	border: 1px solid #e5e5e5;
+
+	&:not(:last-child) {
+		margin-bottom: 20px;
+	}
+}
+
+.checkbox-input,
+.radio-input {
+	position: relative;
+
+	label {
+		min-height: 44px;
+		cursor: pointer;
+		position: relative;
+		padding-left: $checkbox-input-width + 10px;
+		margin-right: 15px;
+
+		&:before,
+		svg {
+			@include transition(all .15s ease-out);
+		}
+
+		&:before {
+			background-color: #fff;
+			content: "";
+			display: block;
+			position: absolute;
+		}
+
+		svg,
+		&:after {
+			display: block;
+			position: absolute;
+			opacity: 0;
+			transform: scale(0);
+			fill: #fff;
+		}
+	}
+
+	input[type=checkbox],
+	input[type=radio] {
+		border: 0;
+		clip: rect(0 0 0 0);
+		height: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+
+		&:checked {
+			& + label {
+				color: #333;
+
+				svg,
+				&:after {
+					opacity: 1;
+					transform: scale(1);
+				}
+
+				&:before {
+					background-color: $bg-color-2;
+				}
+			}
+		}
+
+		&:focus {
+			& + label {
+				outline: $outline;
+			}
+		}
+	}
+}
+
+.checkbox-input {
+	label {
+		min-height: 44px;
+		cursor: pointer;
+		position: relative;
+		padding-left: $checkbox-input-width + 10px;
+		margin-right: 15px;
+
+		&:before,
+		.icon-tick {
+			@include transition(all .15s ease-out);
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 8px;
+			width: $checkbox-input-width;
+			height: $checkbox-input-width;
+			border: none;
+			border-radius: 0;
+			background-color: #e5e5e5;
+		}
+
+		svg {
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 8px;
+			width: $checkbox-input-width;
+			height: $checkbox-input-width;
+			opacity: 0;
+			transform: scale(0);
+			fill: #fff;
+		}
+	}
+}
+
+.radio-input {
+	label {
+		min-height: 44px;
+		cursor: pointer;
+		position: relative;
+		padding-left: $checkbox-input-width + 10px;
+		margin-right: 15px;
+
+		&:before,
+		.icon-tick {
+			@include transition(all .15s ease-out);
+		}
+
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 8px;
+			width: $checkbox-input-width;
+			height: $checkbox-input-width;
+			border: none;
+			border-radius: 100%;
+			background-color: #e5e5e5;
+		}
+
+		&:after {
+			content: "";
+			display: block;
+			position: absolute;
+			left: 8px;
+			top: 16px;
+			width: 10px;
+			height: 10px;
+			border-radius: 100%;
+			opacity: 0;
+			background-color: #fff;
+			transform: scale(0);
+			fill: #fff;
+		}
+	}
+}
+
+.center-form {
+
+	.inner {
+		max-width: 530px;
+	}
+
+	.form-field {
+		@include breakpoint($breakpoint-tablet) {
+			margin-bottom: 10px;
+		}
+
+		input[type='text'] {
+			max-width: 100%;
+		}
+
+		input[type='file'] {
+			max-width: 300px;
+		}
+
+		textarea {
+			// magic number =/
+			// match preceding text input's sizes
+			max-width: 478px;
+		}
+
+		&.-submit {
+			margin-top: 20px;
+			text-align: center;
+		}
+	}
+}
