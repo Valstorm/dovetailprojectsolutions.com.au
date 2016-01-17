@@ -10,17 +10,19 @@
 	<script type="text/javascript" src="public/assets/js/dependencies.js"></script>
 </head>
 <body>
-	<div class="page-container">
+	<div class="page-container" id="home-anchor">
 
 		<header class="section site-header">
 			<div class="inner">
 				
 				<div class="site-title">
-					Dovetail Project Solutions
+					<a href="#home-anchor">
+						Dovetail Project Solutions
+					</a>
 				</div>
 
 				<div class="contact-buttons">
-					<a class="email" href="mailto:" title="Email">
+					<a class="email" href="#contact-form" title="Email">
 						<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
 						  <path d="M5.716 50.276c-1.44 0-2.69-.474-3.748-1.412L20.104 30.73c.455.32.876.628 1.253.904 1.358 1 2.46 1.78 3.303 2.34.842.56 1.967 1.13 3.374 1.713 1.406.583 2.716.875 3.93.875h.07c1.214 0 2.524-.29 3.93-.875 1.403-.583 2.53-1.154 3.374-1.712.845-.56 1.944-1.34 3.303-2.34.4-.29.82-.59 1.258-.903l18.128 18.132c-1.058.938-2.304 1.412-3.743 1.412H5.716zm-2.108-30.96C2.25 18.41 1.048 17.376 0 16.21v27.585l15.982-15.98c-3.197-2.236-7.32-5.065-12.374-8.5m56.817 0c-4.863 3.293-8.995 6.127-12.4 8.504L64 43.794V16.208c-1.024 1.142-2.216 2.177-3.575 3.108M58.283-.007H5.716c-1.834 0-3.248.618-4.233 1.857C.493 3.087 0 4.636 0 6.493c0 1.5.656 3.125 1.965 4.876 1.31 1.747 2.7 3.122 4.178 4.123.81.57 3.25 2.268 7.322 5.09 2.2 1.52 4.108 2.85 5.753 3.997 1.4.977 2.61 1.82 3.604 2.522.115.08.292.207.53.378.258.183.585.42.988.712.775.56 1.416 1.01 1.928 1.354.512.347 1.13.73 1.857 1.163.726.427 1.41.75 2.055.96.643.217 1.235.323 1.784.323h.07c.547 0 1.145-.106 1.787-.323.644-.21 1.327-.533 2.054-.96.725-.433 1.342-.816 1.856-1.164.514-.344 1.155-.796 1.93-1.354.4-.292.726-.53.983-.712.24-.17.42-.298.536-.378.77-.542 1.983-1.383 3.613-2.515 2.958-2.056 7.32-5.083 13.097-9.094 1.738-1.215 3.192-2.68 4.358-4.392C63.416 9.386 64 7.59 64 5.71c0-1.573-.566-2.917-1.7-4.037C61.173.554 59.834-.006 58.284-.006"/>
 						</svg>
@@ -71,7 +73,7 @@
 		<section class="section values">
 			<div class="inner">
 				<h3 class="heading">
-					We share your values
+					We share your values.
 				</h3>
 			</div>
 
@@ -88,12 +90,16 @@
 			</div>
 		</section>
 
-		<section class="section big-text">
+		<section class="section big-text mission faded-overlay">
 			<div class="inner">
-				
-				<h2 class="heading outlined">
-					Our mission is to exceed all of our client's expectations
-				</h2>
+
+				<div class="content">
+					
+					<h2 class="heading outlined">
+						Our mission is to exceed all of our client's expectations
+					</h2>
+
+				</div>
 
 			</div>
 		</section>
@@ -126,7 +132,7 @@
 			</div>
 		</section>
 
-		<section class="section big-text">
+		<section class="section big-text location-quote faded-overlay">
 			<div class="inner">
 				
 				<p>Is your property outside of our usual greater Brisbane &amp; Logan service area?</p>
@@ -172,7 +178,21 @@
 			</div>
 		</section>
 
-		<section class="section contact-form">
+		<section class="section big-text facebook-content">
+			<div class="inner">
+
+				<div class="content">
+					
+					<h2 class="heading">
+						Facebook content goes here
+					</h2>
+
+				</div>
+
+			</div>
+		</section>
+
+		<section class="section contact-form" id="contact-form">
 			<div class="inner">
 				<h3 class="heading">
 					Contact us today
@@ -207,6 +227,12 @@
 						</label>
 						<textarea id="contact_message" name="contact_message"></textarea>
 					</div>
+				</div>
+
+				<div class="form-submit">
+					<button type="submit">
+						SEND
+					</button>
 				</div>
 			</form>
 		</section>

@@ -23,16 +23,18 @@ body {
 	@include font-1;
 }
 
-h1, h2, h3, h4, h5, h6 {
-
-}
-
-p {
+p,
+ul {
 	font-size: $font-size-default;
+	line-height: 1.5em;
 }
 
 ul {
-	font-size: $font-size-default;
+	padding-left: 20px;
+
+	li {
+		margin-bottom: 1em;
+	}
 }
 
 .heading {
@@ -52,9 +54,13 @@ ul {
 	padding-top: 60px;
 	padding-bottom: 60px;
 
-	& > .inner {
+	& > .inner,
+	& > .columns {
 		max-width: $max-width;
 		margin: auto;
+	}
+
+	& > .inner {
 		padding: 0 30px;
 	}
 }
@@ -73,11 +79,23 @@ ul {
 	}
 }
 
+.page-container {
+	padding-top: 81px;
+}
+
 .site-header {
+	position: fixed;
+	z-index: 10;
+	left: 0;
+	top: 0;
+	display: block;
+	width: 100%;
 	text-align: center;
 	border-bottom: 4px solid $color-orange;
 	font-size: 0;
 	padding: 10px 15px;
+	background: #fff;
+	box-shadow: 0 2px 6px rgba(0,0,0,.2);
 
 	.site-title {
 		display: inline-block;
@@ -87,6 +105,11 @@ ul {
 		color: $color-orange;
 		margin: 0 15px;
 		line-height: 1.2em;
+
+		a {
+			color: inherit;
+			text-decoration: none;
+		}
 	}
 
 	.contact-buttons {
@@ -105,10 +128,20 @@ ul {
 			margin: 0 10px;
 
 			svg {
+				@include transition(all 0.2s ease-out);
 				width: 100%;
 				height: 100%;
 				fill: $color-orange;
 				opacity: .8;
+				transform: scale(1);
+			}
+
+			&:hover {
+				svg {
+					fill: darken($color-orange, 10);
+					opacity: 1;
+					transform: scale(1.1);
+				}
 			}
 		}
 	}
@@ -123,6 +156,7 @@ ul {
 	color: #fff;
 	text-align: center;
 	min-height: 800px;
+	border-bottom: 4px solid $color-orange;
 
 	.content {
 		position: absolute;
@@ -131,7 +165,7 @@ ul {
 		width: 100%;
 		max-width: $max-width;
 		transform: translate(-50%, -50%);
-		padding: 30px 60px;
+		padding: 30px 60px 40px;
 	}
 
 	.site-logo {
@@ -157,13 +191,38 @@ ul {
 		font-size: 28px;
 
 		&:after {
-			content: "";
+			content: "\25bc";
+			display: block;
+			padding-top: 15px;
+			font-size: 30px
 		}
 	}
 }		
 
 
 .big-text {
+	position: relative;
+	background-color: #010a0c;
+	background-position: center center;
+	background-size: cover;
+	color: #fff;
+	border-width: 4px 0;
+	border-style: solid;
+	border-color: $color-orange;
+
+	.inner {
+		min-height: 300px;
+	}
+
+	.content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 100%;
+		max-width: $max-width;
+		transform: translate(-50%, -50%);
+		padding: 30px 60px 40px;
+	}
 
 	.heading {
 		font-size: 60px;
@@ -184,14 +243,47 @@ ul {
 	}
 }
 
+
+.mission {
+	background-image: url(../img/hero-2.jpg);
+}
+
+.location-quote {
+	background-image: url(../img/hero-3.jpg);
+}
+
 .outlined {
-	
+	border: 2px solid #5e5f5f;
+	padding: 30px 30px 40px;
+}
+
+.faded-overlay {
+	position: relative; 
+
+	&:after {
+		content: "";
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		top: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background-color: #333;
+		opacity: 0.8;
+	}
+
+	.inner {
+		position: relative;
+		height: 100%;
+		z-index: 2;
+	}
 }
 
 .services {
 
 	.heading {
-
+		color: $color-orange;
 	}
 }
 
@@ -199,7 +291,7 @@ ul {
 
 
 	.heading {
-
+		color: $color-orange;
 	}
 }
 
@@ -212,6 +304,7 @@ ul {
 	blockquote {
 		margin: 0;
 		text-align: center;
+		font-style: italic;
 
 		p {
 			&:first-of-type {
@@ -244,13 +337,24 @@ ul {
 
 		.field {
 
-			label {
+			&:not(:last-child) {
+				margin-bottom: 20px;
+			}
 
+			label {
+				font-size: $font-size-default;
+				display: block;
+				padding-bottom: 10px;
+				font-weight: bold; 
 			}
 
 			input,
 			textarea {
 				font-size: $font-size-default;
+				width: 100%;
+				display: block;
+				line-height: 1.4em;
+				padding: 4px 8px;
 			}
 
 			input {
@@ -258,8 +362,35 @@ ul {
 			}
 
 			textarea {
-
+				height: 12em;
+				resize: vertical;
 			}
 		}
+
+		.form-submit {
+			text-align: right;
+		}
+	}
+}
+
+button {
+	@include transition(all 0.2s ease-out);
+	font-size: 20px;
+	display: inline-block;
+	background: #414042;
+	color: #fff;
+	font-weight: bold;
+	text-transform: uppercase;
+	padding: 5px 15px;
+	border: 2px solid #fff;
+
+	&:hover {
+		background: #fff;
+		color: #414042;
+		border-color: #414042;
+	}
+
+	&[type="submit"] {
+		margin: 30px;
 	}
 }
