@@ -11,12 +11,19 @@
 
 $max-width: 1024px;
 $site-header-h: 75px;
-$font-size-default: 18px;
+$contact-icons-w: 34px;
+$font-size-default: 16px;
+$font-size-default-tablet: 17px;
+$font-size-default-desktop: 18px;
 $color-orange: #fa5302;
 $color-bg-gray: #f4f4f4;
 $section-border-width: 2px;
 $site-logo-size: 110px;
 $bg-gradient: linear-gradient(90deg, #e8e8e8 0%, #f7f7f7 50%, #e8e8e8 100%);
+
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-desktop-wide: 1144px;
 
 
 body {
@@ -28,6 +35,13 @@ p,
 ul {
 	font-size: $font-size-default;
 	line-height: 1.5em;
+
+	@media (min-width: $breakpoint-tablet) {
+		font-size: $font-size-default-tablet;
+	}
+	@media (min-width: $breakpoint-desktop) {
+		font-size: $font-size-default-desktop;
+	}
 }
 
 ul {
@@ -40,11 +54,20 @@ ul {
 
 .heading {
 	font-style: italic;
-	font-size: 36px;
+	font-size: 26px;
 	text-align: center;
-	margin: 0 0 30px;
+	margin: 0 0 15px;
 	font-weight: bold;
 	line-height: 1.1em;
+
+	@media (min-width: $breakpoint-tablet) {
+		font-size: 30px;
+		margin: 0 0 20px;
+	}
+	@media (min-width: $breakpoint-desktop) {
+		font-size: 36px;
+		margin: 0 0 30px;
+	}
 }
 
 * + .heading {
@@ -54,8 +77,17 @@ ul {
 .section {
 	&:not(.no-section-spacing),
 	&.no-section-spacing .inner-border {
-		padding-top: 60px;
-		padding-bottom: 60px;
+		padding-top: 30px;
+		padding-bottom: 30px;
+
+		@media (min-width: $breakpoint-tablet) {
+			padding-top: 50px;
+			padding-bottom: 50px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
 	}
 
 	& > .inner,
@@ -68,12 +100,26 @@ ul {
 	}
 
 	& > .inner {
-		padding: 0 30px;
+		padding: 0 15px;
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 0 20px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			padding: 0 30px;
+		}
 	}
 
 	& > .inner-border > .inner,
 	& > .inner-border > .columns {
-		padding: 0 60px;
+		padding: 0 15px;
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 0 25px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			padding: 0 30px;
+		}
 	}
 }
 
@@ -92,28 +138,58 @@ ul {
 		font-size: 0;
 
 		.col {
-			display: inline-block;
-			width: 50%;
-			vertical-align: top;
+			display: block;
+			width: 100%;
 			font-size: $font-size-default;
-			padding: 0 30px;
+			padding: 0;
 
-			&:first-child {
-				padding-left: 0;
+			@media (min-width: $breakpoint-tablet) {
+				display: inline-block;
+				vertical-align: top;
+				width: 50%;
+				padding: 0 25px;
+				font-size: $font-size-default-tablet;
+
+				&:first-child {
+					padding-left: 0;
+				}
+				&:last-child {
+					padding-right: 0;
+				}
 			}
-			&:last-child {
-				padding-right: 0;
+			@media (min-width: $breakpoint-desktop) {
+				padding: 0 30px;
+				font-size: $font-size-default-desktop;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 20px;
+
+				@media (min-width: $breakpoint-tablet) {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}
 
 	&:not(:last-child) {
-		margin-bottom: 30px;
+		margin-bottom: 15px;
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-bottom: 25px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			margin-bottom: 30px;
+		}
 	}
 }
 
 .page-container {
-	padding-top: $site-header-h;
+	padding-top: $site-header-h * 0.85;
+
+	@media (min-width: $breakpoint-tablet) {
+		padding-top: $site-header-h;
+	}
 }
 
 .site-header {
@@ -123,29 +199,57 @@ ul {
 	top: 0;
 	display: block;
 	width: 100%;
-	height: $site-header-h;
+	height: $site-header-h * 0.85;
+	overflow: hidden;
 	text-align: center;
 	border-bottom: $section-border-width solid $color-orange;
 	font-size: 0;
 	background: #fff;
 	box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 
+	@media (min-width: $breakpoint-tablet) {
+		height: $site-header-h;
+	}
+
 	& > .inner {
 		max-width: $max-width;
 		margin: auto;
-		padding: 0 30px;
+		padding: 0 15px;
+
+		@media (min-width: $breakpoint-tablet) {
+			padding: 0 20px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			padding: 0 60px;
+		}
 	}
 
 	.site-title {
 		position: absolute;
 		left: 50%;
+		display: block;
+		width: 100%;
 		height: $site-header-h;
 		transform: translateX(-50%);
-		font-size: 36px;
+		font-size: 20px;
 		font-weight: normal;
 		color: $color-orange;
-		margin: 0 15px;
-		line-height: $site-header-h - 3px;
+		line-height: $site-header-h * 0.85;
+
+		@media (min-width: 340px) {
+			font-size: 22px;
+		}
+
+		@media (min-width: $breakpoint-tablet) {
+			left: 50%;
+			width: auto;
+			margin: 0 15px;
+			font-size: 28px;
+			line-height: $site-header-h - 3px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			font-size: 36px;
+		}
 
 		a {
 			color: inherit;
@@ -163,9 +267,22 @@ ul {
 			position: absolute;
 			top: 22px;
 			display: block;
-			width: 34px;
-			height: 34px;
+			width: $contact-icons-w * 0.7;
+			height: $contact-icons-w * 0.7;
 			color: $color-orange;
+
+			@media (min-width: $breakpoint-tablet) {
+				top: 22px;
+				display: block;
+				width: $contact-icons-w * 0.85;
+				height: $contact-icons-w * 0.85;
+			}
+			@media (min-width: $breakpoint-desktop) {
+				top: 22px;
+				display: block;
+				width: $contact-icons-w;
+				height: $contact-icons-w;
+			}
 
 			svg {
 				@include transition(all 0.2s ease-out);
@@ -203,23 +320,47 @@ ul {
 	background-size: cover;
 	color: #fff;
 	text-align: center;
-	min-height: 800px;
 	border-bottom: $section-border-width solid $color-orange;
 
+	@media (min-width: $breakpoint-tablet) {
+		min-height: 500px;
+	}
+	@media (min-width: $breakpoint-desktop) {
+		min-height: 800px;
+	}
+
 	.content {
-		position: absolute;
-		top: 50%;
-		left: 50%;
 		width: 100%;
-		max-width: $max-width;
-		transform: translate(-50%, -50%);
-		padding: 30px 90px 40px;
+		max-width: 300px;
+		margin: auto;
+
+		@media (min-width: $breakpoint-tablet) {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100%;
+			transform: translate(-50%, -50%);
+			padding: 30px 90px 40px;
+			max-width: 620px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			max-width: $max-width;
+		}
 	}
 
 	.site-logo {
-		width: $site-logo-size;
-		height: $site-logo-size;
+		width: $site-logo-size * 0.6;
+		height: $site-logo-size * 0.6;
 		margin: auto;
+
+		@media (min-width: $breakpoint-tablet) {
+			width: $site-logo-size * 0.8;
+			height: $site-logo-size * 0.8;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			width: $site-logo-size;
+			height: $site-logo-size;
+		}
 
 		svg {
 			width: 100%;
@@ -228,16 +369,36 @@ ul {
 	}
 
 	.heading {
-		margin-top: 60px;
-		margin-bottom: 80px;
-		font-size: 54px;
+		margin-top: 30px;
+		margin-bottom: 40px;
+		font-size: 22px;
 		font-weight: normal;
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: 40px;
+			margin-bottom: 60px;
+			font-size: 32px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			margin-top: 60px;
+			margin-bottom: 80px;
+			font-size: 54px;
+		}
 	}
 
 	.scroll-notice { 
-		max-width: 470px;
+		max-width: 240px;
 		margin: auto;
-		font-size: 22px;
+		font-size: 14px;
+
+		@media (min-width: $breakpoint-tablet) {
+			max-width: 380px;
+			font-size: 20px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			max-width: 470px;
+			font-size: 22px;
+		}
 
 		&:after {
 			content: "\25bc";
@@ -259,21 +420,44 @@ ul {
 	border-color: $color-orange;
 
 	.heading {
-		font-size: 60px;
-		margin: 30px 80px;
+		font-size: 24px;
+		margin: 15px 20px;
+
+		@media (min-width: $breakpoint-tablet) {
+			font-size: 40px;
+			margin: 20px 50px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			font-size: 60px;
+			margin: 30px 80px;
+		}
 	}
 
 	p {
 		font-style: italic;
-		font-size: 48px;
+		font-size: 24px;
 		text-align: center;
 		font-weight: bold;
 		line-height: 1.1em;
+
+		@media (min-width: $breakpoint-tablet) {
+			font-size: 32px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			font-size: 48px;
+		}
 	}
 
 	.heading + p,
 	p + p {
-		margin-top: 60px;
+		margin-top: 30px;
+
+		@media (min-width: $breakpoint-tablet) {
+			margin-top: 40px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			margin-top: 60px;
+		}
 	}
 }
 
@@ -281,7 +465,14 @@ ul {
 	background-image: url(../img/hero-2.jpg);
 
 	.heading {
-		font-size: 72px;
+		font-size: 24px;
+
+		@media (min-width: $breakpoint-tablet) {
+			font-size: 52px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			font-size: 72px;
+		}
 	} 
 }
 
@@ -291,7 +482,14 @@ ul {
 
 .outlined {
 	border: 2px solid #5e5f5f;
-	padding: 30px 50px 40px;
+	padding: 15px 20px 18px;
+
+	@media (min-width: $breakpoint-tablet) {
+		padding: 20px 30px 25px;
+	}
+	@media (min-width: $breakpoint-desktop) {
+		padding: 30px 50px 40px;
+	}
 }
 
 .services {	
@@ -359,6 +557,13 @@ ul {
 				display: block;
 				padding-bottom: 10px;
 				font-weight: bold; 
+
+				@media (min-width: $breakpoint-tablet) {
+					font-size: $font-size-default-tablet;
+				}
+				@media (min-width: $breakpoint-desktop) {
+					font-size: $font-size-default-desktop;
+				}
 			}
 
 			input,
@@ -369,6 +574,13 @@ ul {
 				line-height: 1.4em;
 				padding: 4px 8px;
 				border: 1px solid #aaa;
+
+				@media (min-width: $breakpoint-tablet) {
+					font-size: $font-size-default-tablet;
+				}
+				@media (min-width: $breakpoint-desktop) {
+					font-size: $font-size-default-desktop;
+				}
 			}
 
 			input {
@@ -405,6 +617,13 @@ button {
 	}
 
 	&[type="submit"] {
-		margin: 30px;
+		margin: 15px 0;
+
+		@media (min-width: $breakpoint-tablet) {
+			margin: 20px 25px;
+		}
+		@media (min-width: $breakpoint-desktop) {
+			margin: 25px 30px;
+		}
 	}
 }
