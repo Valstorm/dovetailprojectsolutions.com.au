@@ -476,10 +476,13 @@ ul {
   background: #fff;
   max-width: 1024px;
   margin: auto;
-  border-width: 0 2px;
+  border-width: 0;
   border-style: dashed;
   border-color: #fa5302;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.3); }
+  @media (min-width: 768px) {
+    .inner-border {
+      border-width: 0 2px; } }
 
 .columns.col-2 {
   font-size: 0; }
@@ -787,6 +790,12 @@ ul {
   .testimonials blockquote cite:before {
     content: "\2014"; }
 
+.facebook-content {
+  background: #000;
+  color: #fff; }
+  .facebook-content a {
+    color: #fa5302; }
+
 .cta-bar {
   text-align: right; }
   .cta-bar .btn-cta {
@@ -860,5 +869,17 @@ button {
     @media (min-width: 1024px) {
       button[type="submit"] {
         margin: 25px 30px; } }
+
+.notification {
+  font-size: 16px;
+  text-align: center;
+  color: #fa5302;
+  margin-bottom: 1.5em; }
+  @media (min-width: 768px) {
+    .notification {
+      font-size: 18px; } }
+  @media (min-width: 768px) {
+    .notification {
+      font-size: 22px; } }
 
 /*# sourceMappingURL=main.css.map */

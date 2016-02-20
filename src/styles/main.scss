@@ -127,10 +127,14 @@ ul {
 	background: #fff;
 	max-width: $max-width;
 	margin: auto;
-	border-width: 0 2px;
+	border-width: 0;
 	border-style: dashed;
 	border-color: $color-orange;
 	box-shadow: 0 0 40px rgba(0,0,0,0.3);
+
+	@media (min-width: $breakpoint-tablet) {
+		border-width: 0 2px;
+	}
 }
 
 .columns {
@@ -531,6 +535,15 @@ ul {
 	}
 }
 
+.facebook-content {
+	background: #000;
+	color: #fff;
+
+	a {
+		color: $color-orange;
+	}
+}
+
 .cta-bar {
 	text-align: right;
 
@@ -625,5 +638,20 @@ button {
 		@media (min-width: $breakpoint-desktop) {
 			margin: 25px 30px;
 		}
+	}
+}
+
+.notification {
+	font-size: 16px;
+	text-align: center;
+	color: $color-orange;
+	margin-bottom: 1.5em;
+
+	@media (min-width: $breakpoint-tablet) {
+		font-size: 18px;
+	}
+
+	@media (min-width: $breakpoint-tablet) {
+		font-size: 22px;
 	}
 }
